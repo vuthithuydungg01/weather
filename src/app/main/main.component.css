@@ -1,0 +1,221 @@
+.main-content {
+  background-attachment: fixed;
+  background-position: 50%;
+  background-size: cover;
+  max-width: 1162px;
+  grid-template-columns: minmax(0, 1fr) 350px;
+}
+.main-content-left {
+  grid-template-columns: repeat(12, 1fr);
+}
+.content-left1 {
+  background-image: url(https://s.w-x.co/WeatherImages_Web/WeatherImage_Fair-day_1.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70);
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+  text-shadow: 0 0 5px rgb(23 36 50 / 50%);
+}
+.content-left1 .main-content-text span {
+  text-shadow: 0 0 5px rgb(23 36 50 / 50%);
+}
+.main-content-text .main-content-text-right img {
+  width: 100px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.55));
+}
+.main-content1-header {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.main-content1-header h1 {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.main-content-right {
+}
+.main-content-right1,
+.main-content-right2 {
+  color: #2b2b2b;
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+  background-color: #fff;
+}
+.main-content-right2 h2 {
+  padding: 16px 16px 0;
+}
+.main-content-right2 .listItem {
+  border-top: 1px solid #dedede !important;
+  padding: 18px 16px 17px 24px!important;
+}
+.main-content-right2 .listItem svg:first-child {
+  min-width: 50px;
+  border-radius: 50%;
+}
+.DonutChart-track {
+  fill: transparent;
+    stroke: #e7ecf1;
+}
+.DonutChart-indicator {
+  fill: transparent;
+    transition: stroke-dasharray .3s ease;
+}
+.HealthActivitiesListItem-description {
+  color: #6f7585;
+  line-height: 1.1em;
+    word-break: break-word;
+}
+.main-content-right2 .listItem > svg:last-child {
+  flex-shrink: 0;
+  box-sizing: unset;
+  fill: #1b4de4;
+    color: #1b4de4;
+}
+
+.main-content-right1 .air-quality .air-quality-icon {
+  padding-left: 25px;
+  width: 60px;
+  box-sizing: unset;
+}
+.DonutChart-donutchart {
+  border-radius: 50%;
+}
+.DonutChart-donutchart circle:first-child {
+  fill: transparent;
+  stroke: #e7ecf1;
+}
+.DonutChart-donutchart circle:nth-child(2) {
+  fill: transparent;
+    transition: stroke-dasharray .3s ease;
+}
+.air-quality-text {
+  width: fit-content;
+  padding: 12px 16px 0 26px;
+}
+.air-quality-text p {
+  color: #6f7585;
+  line-height: 1.25;
+}
+.main-content-right1 .btn-a {
+  margin: 15px 0 16px 16px !important;
+}
+/* .content-left2 {
+  @apply mt-3;
+} */
+.content-left2,
+.content-left3,
+.content-left4,
+.content-left5 {
+  height: auto;
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+  background-color: #fff;
+  color: #2b2b2b;
+}
+.main-content2-header {
+  line-height: 1.2;
+}
+.weather-table li {
+  flex-basis: 22%;
+  padding: 0 15px;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-image: linear-gradient(
+      180deg,
+      hsla(0, 0%, 87.1%, 0) 0,
+      #dedede 25%,
+      #dedede 70%,
+      hsla(0, 0%, 87.1%, 0) 85%,
+      hsla(0, 0%, 87.1%, 0)
+    )
+    1 100%;
+  justify-content: center;
+}
+.content-left4 .weather-table li,
+.content-left4 .weather-table li {
+  padding: 0 5px;
+}
+.content-left2 .weather-table li:first-child {
+  color: #6f7585;
+  padding-left: 0;
+}
+.content-left2 .weather-table li:first-child a span {
+  color: #6f7585;
+}
+.content-left2 .weather-table li:nth-child(2) a,
+.content-left5 .weather-table li:nth-child(1) a,
+.content-left4 .weather-table li:nth-child(1) a {
+  font-weight: bold;
+}
+.weather-table li:last-child {
+  padding-right: 0;
+  border: 0;
+}
+.weather-table li a {
+  justify-content: flex-end;
+  flex-direction: column;
+  text-decoration: none;
+  /* color: #1b4de4; */
+}
+.weather-table li a h3 {
+  padding-bottom: 5px;
+}
+.weather-table li a img {
+  width: 55px;
+  margin-top: 10px;
+}
+.color-text-span {
+  color: #2b2b2b;
+  padding-top: 5px;
+}
+.droplets {
+  width: 7.5px;
+  fill: #6adef8;
+  margin-right: 8px;
+}
+.card-footer {
+  padding: 0 16px 11px 11px;
+}
+.card-footer a {
+  margin: 5px;
+}
+
+.TodaysDetailsBanner {
+  margin: 0 26px 25px 36px;
+}
+.TodaysDetailsBanner-large {
+  font-size: 3.5rem;
+  line-height: 1em;
+}
+
+.SunriseSunset-graph {
+  margin: 0 auto;
+}
+.SunriseSunset-graphPath {
+  transform: rotate(180deg);
+  stroke: #e87538;
+  fill: none;
+  stroke-width: 3px;
+  stroke-linecap: round;
+}
+.Icon-Daylight {
+  display: inline-block;
+  height: auto;
+  width: 24px;
+  overflow: hidden;
+  transform-origin: 0px 0px;
+}
+
+.SunriseValue p,
+.SunsetValue p {
+  font-size: 0.9375rem;
+  letter-spacing: -0.3px;
+  line-height: 1.2em;
+  padding-left: 5px;
+  margin: 15px 0;
+}
+.sunIcon {
+  fill: #febc11;
+}
+
+.WeatherDetailsListItem {
+  flex-basis: 49%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-top: 1px solid #dedede !important;
+  padding: 10px 16px;
+}

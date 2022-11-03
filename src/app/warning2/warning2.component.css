@@ -1,0 +1,72 @@
+.pb-26px {
+  padding-bottom: 26px;
+}
+.AirQuality-Col1 {
+  padding: 2px 0 0 25px;
+}
+
+.DonutChart-donutchart {
+  border-radius: 50%;
+}
+
+.DonutChart-innerValue1 {
+  font-size: 2.75rem;
+}
+
+.AirQuality-Col2 {
+  padding: 12px 26px 0;
+}
+.AirQuality-Col2 p {
+  color: #6f7585;
+  font-size: .9375rem!important;
+  line-height: 1.4em!important;
+  padding-bottom: 15px;
+}
+
+.AirQuality-rightCol {
+  flex: 1 0 25%;
+  margin: 0 26px;
+  padding: 26px 16px 26px 26px;
+  border-left: 1px solid #dedede;
+  box-sizing: unset;
+}
+.AirQuality-pollutantHeading {
+  margin-bottom: 10px;
+}
+.AirQuality-pollutantName {
+  line-height: 1.375em;
+}
+
+.AirQuality-dial {
+  padding: 18px 26px;
+  border-bottom: 1px solid #dedede;
+}
+.AirQuality-colWrapper {
+  max-width: 298px;
+}
+.DonutChart-innerValue2 {
+  font-size: .9375rem;
+}
+
+.pollutantName {
+  line-height: 1.375em!important;
+}
+.pollutantCategory {
+  color: #6f7585;
+  font-size: .8125rem!important;
+  line-height: 1.23em!important;
+}
+.pollutantMeasurement {
+  color: #6f7585;
+  font-size: .8125rem!important;
+}
+
+.AirQuality-allPollutantDials .AirQuality-dial:nth-child(1),
+.AirQuality-allPollutantDials .AirQuality-dial:nth-child(2) {
+  padding-top: 0;
+}
+.AirQuality-allPollutantDials .AirQuality-dial:nth-child(5),
+.AirQuality-allPollutantDials .AirQuality-dial:nth-child(6) {
+  border-bottom: none;
+  margin-bottom: 18px;
+}

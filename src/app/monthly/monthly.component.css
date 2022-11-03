@@ -1,0 +1,218 @@
+.LocationPageTitle-PageHeader {
+  padding: 16px 15px 6px;
+}
+.HourlyForecast-timestamp {
+  padding: 0 16px 6px;
+}
+.arrowIcon {
+  width: 18px;
+  fill: #1b4de4;
+  color: #1b4de4;
+}
+/* .selected-month select {
+  padding-right: 15px;
+} */
+.CalendarMonthPicker-arrow {
+  width: 21px;
+  margin-left: -17px;
+  padding: 0 5px;
+}
+.CalendarMonthPicker {
+  padding: 0.625rem;
+  margin-top: 0.875rem;
+  list-style: none;
+}
+.CalendarMonthPicker .preBtn,
+.CalendarMonthPicker .nextBtn {
+  color: #1b4de4;
+  font-size: 1rem;
+  vertical-align: text-top;
+}
+.CalendarMonthPicker-monthPicker {
+  letter-spacing: -0.32px;
+  outline: none !important;
+}
+.viewButton {
+  height: 30px;
+  min-width: 55px;
+  opacity: 0.7;
+  color: #6f7585;
+  cursor: pointer;
+  border: 1px solid;
+  outline: none;
+  pointer-events: none;
+  margin-left: 10px;
+  padding: 1px 6px;
+}
+.viewButton span {
+  color: #6f7585;
+  letter-spacing: -0.28px;
+  white-space: nowrap;
+}
+.Calendar-line {
+  color: #dedede;
+  height: 1px;
+  margin: 0 15px 10px;
+  background-color: #dedede;
+  border: 0;
+}
+.Calendar-days {
+  /* color: #909090; */
+  margin-bottom: 8px;
+}
+
+/* Celendar */
+.Calendar-gridWrapper {
+  margin: -5px 15px 15px;
+}
+.CalendarDateCell {
+  width: 100%;
+  min-height: 75px;
+  border-top: 1px solid #dedede !important;
+  border-left: 1px solid #dedede !important;
+  cursor: pointer;
+  padding: 10px 0;
+}
+/* .Calendar-gridWrapper .CalendarDateCell:nth-child(7),
+.Calendar-gridWrapper .CalendarDateCell:nth-child(14),
+.Calendar-gridWrapper .CalendarDateCell:nth-child(21),
+.Calendar-gridWrapper .CalendarDateCell:nth-child(28),
+.Calendar-gridWrapper .CalendarDateCell:nth-child(35) {
+  border-right: 1px solid #dedede !important;
+} */
+/* .Calendar-gridWrapper .CalendarDateCell:nth-child(n + 29) {
+  border-bottom: 1px solid #dedede !important;
+} */
+.DaypartDetails-Content {
+  color: #2b2b2b;
+  left: 0;
+}
+
+.iconAstro {
+  right: 5px;
+  top: 0;
+  font-size: 1rem;
+  fill: #6f7585;
+}
+.date {
+  width: 21px;
+  height: 22px;
+  color: #6f7585;
+  margin: 5px auto 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+}
+.CalendarDateCell img {
+  width: 28px;
+  margin-top: 5px;
+}
+.temps {
+  color: #2b2b2b;
+  padding-top: 5px;
+}
+.tempLow {
+  font-size: 0.9375rem;
+  padding-top: 6px;
+}
+
+/* Details */
+.Calendar-gridWrapper summary {
+  list-style: none;
+}
+/* .Calendar-detail {
+  width: 100%;
+  flex: calc(100%/7);
+}
+*/
+
+.DaypartDetails-Content {
+  border-top: 1px solid #dedede !important;
+  padding: 30px 26px 40px;
+}
+.Calendar-detail:nth-child(7),
+.Calendar-detail:nth-child(14),
+.Calendar-detail:nth-child(21),
+.Calendar-detail:nth-child(28),
+.Calendar-detail:nth-child(35) {
+  border-right: 1px solid #dedede !important;
+}
+.Calendar-detail:nth-child(n + 29) {
+  border-bottom: 1px solid #dedede !important;
+}
+
+.Almanac {
+  text-align: left;
+  padding: 0 15px !important;
+  border-collapse: collapse;
+  column-count: 4;
+}
+.Almanac-rowColumnLabel {
+  width: 118px;
+  height: 21px;
+}
+.Almanac-rowColumnLabel,
+.Almanac-columnLabel {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.32px;
+  line-height: 1.8;
+}
+.Almanac-columnLabel {
+  width: 60px;
+}
+.Almanac-row {
+  width: 100%;
+  height: 21px;
+  padding: 5px 0 !important;
+  border-bottom: 1px solid #dedede;
+  text-align: left;
+}
+.Almanac-row:last-child {
+  border: none;
+}
+.Almanac-rowLabel {
+  width: 125px;
+}
+.Almanac-tableItem,
+.Almanac-rowLabel {
+  font-size: 0.875rem;
+  font-weight: 400 !important;
+  letter-spacing: -0.09px;
+  line-height: 1.6;
+  padding: 5px 0;
+}
+.Almanac-tableItem {
+  width: 60px;
+  padding: 5px;
+}
+.Almanac-tableTitle {
+  padding: 10px 0 5px;
+  height: 21px;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.32px;
+  line-height: 1.8;
+  border: none !important;
+}
+.main-content-right1 .Almanac {
+  padding-bottom: 5px;
+}
+.Almanac .Almanac-row:last-child {
+  border-collapse: none;
+}
+.Almanac:last-child {
+  margin-bottom: 10px;
+}
+
+.message {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* .message:hover {
+  display: block;
+  overflow: visible;
+} */

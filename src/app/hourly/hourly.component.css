@@ -1,0 +1,90 @@
+.content-hourly {
+  color: #2b2b2b;
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+}
+.LocationPageTitle-PageHeader {
+  line-height: 1.08em;
+  padding: 16px 26px 6px;
+}
+.HourlyForecast-timestamp {
+  padding: 0 26px 21px;
+}
+.HourlyForecast-longDate {
+  padding: 10px 26px;
+  border-top: 1px solid #dedede;
+
+}
+.DayPartDetail {
+  border-top: 1px solid #dedede;
+}
+.DayPartDetail summary {
+  list-style: none;
+}
+.DaypartDetail-Summary {
+  padding: 10px 26px;
+}
+.precipIcon {
+  width: 9px!important;
+  fill: #1b4de4;
+    color: #1b4de4;
+    margin-right: 5px
+}
+.conditionsIcon {
+  width: 18px;
+  fill: #1b4de4;
+    color: #1b4de4;
+  margin-right: 5px;
+}
+.Disclosure-SummaryIcon {
+  width: 18px;
+  fill: #1b4de4;
+}
+.DetailsSummary h3 {
+  flex: 0 0 75px;
+}
+.detailsTemperature {
+  flex: 0 0 94px;
+}
+.wxIcon {
+  flex: 1 1 auto;
+}
+.wxIcon img {
+  width: 34px;
+  height: 34px;
+}
+.Precip {
+  flex: 0 0 56px;
+}
+.wind {
+  min-width: 125px;
+  flex: 0 0 125px;
+}
+.DaypartDetails-Content {
+  padding: 5px 26px 15px;
+}
+.DetailsTable {
+  border: 1px solid #dedede;
+}
+.DetailsTable-icon {
+  fill: #1b4de4;
+    color: #1b4de4;
+
+}
+.DetailsTable-field {
+  width: calc(100% - 34px);
+    line-height: 1.2;
+}
+.DetailsTable-field span:first-child {
+  font-size: .8125rem;
+}
+.DetailsTable li:nth-child(n+4) {
+  border-top: 1px solid #dedede!important;
+}
+.HourlyForecast-footerButton {
+  padding-left: 26px;
+  padding-right: 26px;
+  border-top: 1px solid #dedede;
+}
+.HourlyForecast-footerButton a {
+  margin: 6px;
+}

@@ -1,0 +1,106 @@
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1e2023;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.row {
+  max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.py-7\.5 {
+  padding: 30px 0;
+}
+
+.topbar {
+  width: 100%;
+    height: 53px;
+    background-color: #1e2023;
+}
+.navbar {
+  width: 100%;
+  height: 39px;
+  background-color: #fffcfc;
+}
+.content-top {
+
+  background-color: #f7f7f7;
+  border-top: 1px solid #d7d7d7;
+    border-bottom: 2px solid #d7d7d7;
+}
+.content-top h2 {
+  line-height: 1.4;
+}
+
+.valid {
+  max-width: 520px;
+  margin: 0 auto 25px;
+  line-height: 1.8;
+}
+.valid h1 {
+  line-height: 1.4;
+}
+.valid-input {
+  height: 34px;
+  color: #1e2023;
+  background: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #a3a3a3;
+  box-shadow: inset 0 1px 2px rgb(30 32 35 / 10%);
+  transition: box-shadow .5s,border-color .25s ease-in-out;
+}
+.valid-input:focus {
+  border: 1px solid #4c4c4c;
+  box-shadow: 0 0 5px #a3a3a3;
+  outline: 5px auto #15aadc!important;
+}
+.forgot-password {
+  color: #006f9e;
+  float: right!important;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.button-submit button{
+  min-width: 170px;
+  /* display: inline-block; */
+  padding: 0.6em 1em;
+  color: #fff;
+  background-color: #19aadb;
+  font-size: .9375rem;
+  text-align: center;
+  line-height: 1;
+  transition: background-color .25s ease-out,color .25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  border-top: 3px solid transparent;
+    border-bottom: 3px solid #008fbf;
+}
+.signup {
+  color: #006f9e;
+}
+.signup:hover {
+  text-decoration: underline;
+}
+
+.wu-tos {
+  max-width: 520px;
+    margin: 0 auto;
+}
+.policy {
+  color: #006f9e;
+  text-decoration: underline;
+  line-height: 28px;
+}
+
+footer {
+  background-color: #1e2023;
+  padding: 30px 0;
+}

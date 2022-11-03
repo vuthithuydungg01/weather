@@ -1,0 +1,560 @@
+<app-header></app-header>
+
+<div class="main-content mx-auto grid gap-x-3 pt-3 pb-3">
+  <div class="main-content-left relative ml-3 grid col-start-1 col-end-2
+    gap-x-3 auto-rows-max">
+    <div class="content-hourly w-full col-span-12 h-full rounded-md
+      bg-white">
+      <h1 class="LocationPageTitle-PageHeader font-normal text-2xl">
+        <strong class="font-bold">Thời tiết 10 ngày</strong>
+        <span class="LocationPageTitle-LocationText pl-1 text-base"> -
+          <span class="pl-1 text-base">Xom trong, 64</span>
+        </span>
+      </h1>
+      <div class="HourlyForecast-timestamp text-sm">
+        Kể từ {{time}} ICT
+      </div>
+      <nav class="CalendarMonthPicker mt-3.5 p-2.5 flex items-center
+        justify-between text-center">
+        <button class="inline-block cursor-pointer text-lg justify-start
+          self-center py-1.5">
+          <svg class="arrowIcon inline-block text-lg" set="Arrows"
+            name="caret-left" theme="full" aria-hidden="true" role="img"
+            viewBox="0 0 24 24"><title>Arrow Left</title><path d="M7.914
+              12l7.293 7.293a1 1 0 1 1-1.414 1.414l-8-8a1 1 0 0 1 0-1.414l8-8a1
+              1 0 1 1 1.414 1.414L7.914 12z"></path></svg>
+          <button class="preBtn" (click)="btnPrevMonth()">{{prevMonthName}}</button>
+        </button>
+        <div class="selected-month inline-block">
+          <select class="CalendarMonthPicker-monthPicker text-base font-medium
+            w-12" name="" id="month-picker">
+            <option value="" *ngFor="let item of mon">{{item}}</option>
+          </select>
+          <!-- <svg class="CalendarMonthPicker-arrow inline-block h-auto" set="ui" name="triangle-down" theme="" aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Arrow down</title><path d="M23.765 5.167h-23.53l11.75 13.666 11.779-13.666z"></path></svg> -->
+          <select class="CalendarMonthPicker-monthPicker text-base font-medium
+            w-14" name="" id="month-picker">
+            <option value="" *ngFor="let item of year">{{item}}</option>
+          </select>
+          <button class="viewButton ml-2 px-1.5 text-xl text-opacity-70
+            text-center rounded-2xl">
+            <span class="text-sm font-semibold">Xem</span>
+          </button>
+        </div>
+        <button class="inline-block cursor-pointer text-lg justify-start
+          self-center py-1.5">
+          <button class="nextBtn" (click)="btnNextMonth()">{{nextMonthName}}</button>
+          <svg class="arrowIcon inline-block text-lg" set="Arrows"
+            name="caret-right" theme="full" aria-hidden="true" role="img"
+            viewBox="0 0 24 24"><title>Arrow Right</title><path d="M15.086
+              12L7.793 4.707a1 1 0 1 1 1.414-1.414l8 8a1 1 0 0 1 0 1.414l-8 8a1
+              1 0 1 1-1.414-1.414L15.086 12z"></path></svg>
+        </button>
+      </nav>
+      <hr class="Calendar-line">
+      <dl class="Calendar-days w-full flex mb-2 cursor-pointer">
+        <dt *ngFor="let item of dataDay1" class=" flex-1 text-base font-medium
+          text-center uppercase">{{ item?.day }}</dt>
+      </dl>
+
+      <div class="Calendar-gridWrapper grid grid-cols-7">
+        <div #info_days class="Calendar-detail" *ngFor="let item of arrInfoDays;
+          let i= index" (click)="openDetail(item, i)">
+          <button class="CalendarDateCell flex flex-col justify-start
+            items-center relative">
+            <div class="iconAstro absolute">
+              <svg set="astro" name="phase-1" theme="full"
+                class="Icon-3ns8p inline-block h-auto w-3"
+                data-testid="Icon" aria-hidden="true" role="img" width="1024"
+                height="1024" viewBox="0 0 1024 1024"><title>Moon Phase - Day
+                  1</title><path
+                  d="M516.262 978.714q189.669 0 325.261-135.06T977.115
+                  517.86q0-190.202-135.592-325.528T516.262 57.006q173.153 0
+                  297.29
+                  135.326T937.689 517.86q0 190.734-124.137 325.794t-297.29
+                  135.06zm0-956.87q204.587 0 350.568 145.981t145.981 350.568q0
+                  205.12-145.981 350.568t-350.568 145.448q-205.12
+                  0-350.568-145.448T20.246 518.393q0-204.587
+                  145.448-350.568T516.262 21.844z"></path></svg>
+            </div>
+            <div class="date block font-light">
+              {{ item.dayOfMonth }}
+            </div>
+            <img src="../../assets/img/small-rain.png" alt="">
+            <div class="temps">
+              <div class="tempHigh text-xl font-medium">
+                <span>{{ item?.morning?.temp }}°</span>
+              </div>
+              <div class="tempLow">
+                <span>{{ item?.night.temp }}°</span>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-content-right mr-3">
+    <div class="content-right1 mb-3">
+      <div class="main-content-right1 grid rounded-md">
+        <div class="headerBlock pt-1 pl-4">
+          <span class="text-xl font-semibold leading-loose">Niên lịch</span>
+        </div>
+        <table class="Almanac w-full flex flex-wrap">
+          <thead>
+            <tr>
+              <th class="Almanac-rowColumnLabel">{{day}} thg {{month}}</th>
+              <th class="Almanac-columnLabel">Cao</th>
+              <th class="Almanac-columnLabel">Thấp</th>
+              <th class="Almanac-columnLabel">Lg.mưa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="Almanac-row" *ngFor="let item of data1">
+              <td class="Almanac-rowLabel">{{ item?.period }}</td>
+              <td class="Almanac-tableItem">
+                <span>{{ item?.daytimeTemperature }}</span>
+              </td>
+              <td class="Almanac-tableItem">
+                <span>{{ item?.nightTemperature }}</span>
+              </td>
+              <td class="Almanac-tableItem">{{ item?.rainfall }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+        <table class="Almanac w-full flex flex-wrap pb-1">
+          <thead>
+            <tr>
+              <th class="Almanac-tableTitle border-none">Các điều kiện đã báo
+                cáo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="Almanac-row" *ngFor="let item of data2">
+              <td class="Almanac-rowLabel">{{ item?.period }}</td>
+              <td class="Almanac-tableItem">
+                <span>{{ item?.daytimeTemperature }}</span>
+              </td>
+              <td class="Almanac-tableItem">
+                <span>{{ item?.nightTemperature }}</span>
+              </td>
+              <td class="Almanac-tableItem">{{ item?.rainfall }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+        <table class="Almanac w-full flex flex-wrap pb-1">
+          <thead>
+            <tr>
+              <th class="Almanac-tableTitle border-none">Trung bình theo tháng
+                trong lịch sử</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="Almanac-row" *ngFor="let item of data3">
+
+              <td class="Almanac-rowLabel">{{ item?.period }}</td>
+              <td class="Almanac-tableItem">
+                <span>{{ item?.daytimeTemperature }}</span>
+              </td>
+              <td class="Almanac-tableItem">
+                <span>{{ item?.nightTemperature }}</span>
+              </td>
+              <td class="Almanac-tableItem">{{ item?.rainfall }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hidden">
+  <div #detail_day *ngIf="detailDay" class="DaypartDetails-Content relative
+    col-span-7
+    grid grid-cols-2 -left-4 bg-white py-6">
+    <div class="DailyContent">
+      <div class="DetailsContent">
+        <h3 class="text-sm font-normal mb-1">
+          <span class="daypartDate font-semibold">
+            {{ detailDay.dayOfWeek }} {{ detailDay.dayOfMonth }}
+          </span>
+          | Ngày
+        </h3>
+        <div class="ConditionsSummary pb-1.5 flex items-start">
+          <span class="text-5xl font-bold">{{ detailDay.morning?.temp
+            }}°</span>
+          <img class="pl-2.5" src="{{ detailDay.morning?.image }}" alt="">
+          <div class="dataPoints ml-auto">
+            <div class="label flex pt-1">
+              <svg class="DailyContent-precipIcon inline-block w-4.5"
+                theme="action" set="heads-up" name="precip-rain-single"
+                aria-hidden="false" aria-label="Khả năng có mưa"
+                role="img" viewBox="0 -2 5 10"><title>Rain</title><path
+                  d="M4.7329.0217c-.1848-.059-.3855.0064-.4803.148L.2731
+                  5.1191c-.0814.0922-.1501.1961-.196.3108-.2469.6009.1185
+                  1.2697.8156 1.4943.6914.226 1.447-.0712
+                  1.7-.6585L4.9662.4987l.0111-.0282c.073-.1807-.036-.379-.2444-.4488z"></path></svg>
+              <span class="pl-2.5 text-sm">{{ detailDay.morning?.rain }}%</span>
+            </div>
+            <div class="label flex pt-1">
+              <svg arialabel="Gió" class="DailyContent-windIcon
+                inline-block" theme="action" set="current-conditions"
+                name="wind" aria-hidden="true" role="img" viewBox="0 0
+                24 24"><title>Wind</title><path d="M6 8.67h5.354c1.457 0
+                  2.234-1.158 2.234-2.222S12.687 4.4 11.354 4.4c-.564
+                  0-1.023.208-1.366.488M3 11.67h15.54c1.457 0
+                  2.235-1.158 2.235-2.222S19.873 7.4 18.54 7.4c-.747
+                  0-1.311.365-1.663.78M6 15.4h9.389c1.457 0 2.234 1.159
+                  2.234 2.223 0 1.064-.901 2.048-2.234 2.048a2.153 2.153
+                  0 0 1-1.63-.742" stroke-width="2"
+                  stroke="currentColor" stroke-linecap="round"
+                  fill="none"></path></svg>
+              <span class="pl-2.5 text-sm">{{ detailDay.morning?.wind }}</span>
+            </div>
+          </div>
+        </div>
+        <p class="message text-base">{{ detailDay.morning?.message }}</p>
+      </div>
+      <ul class="DetailsTable p-4 rounded-md grid grid-cols-2">
+        <li class="DetailsTable-listItem flex items-start pb-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="humidity"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Humidity</title><path
+              fill-rule="evenodd" d="M11.743 17.912a4.182 4.182 0 0
+              1-2.928-1.182 3.972 3.972 0 0 1-.614-4.962.743.743 0 0 1
+              .646-.349c.234 0 .476.095.66.275l4.467
+              4.355c.385.376.39.998-.076 1.275a4.216 4.216 0 0
+              1-2.155.588M11.855 4c.316 0
+              .61.14.828.395.171.2.36.416.562.647 1.857 2.126 4.965
+              5.684 4.965 8.73 0 3.416-2.85 6.195-6.353 6.195-3.505
+              0-6.357-2.78-6.357-6.195 0-3.082 2.921-6.406
+              4.854-8.605.242-.275.47-.535.673-.772A1.08 1.08 0 0 1
+              11.855 4"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Bản ghi cao
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.morning?.highRecord }}°
+            </span>
+          </div>
+        </li>
+        <li class="DetailsTable-listItem flex items-start pb-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="uv"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>UV
+              Level</title><path d="M7.4 5.598a.784.784 0 0 1
+              .25-.92c.335-.256.824-.197
+              1.02.062.066.063.066.063.08.085l2.406 3.152-.626.238a3.983
+              3.983 0 0 0-1.097.633l-.522.424L7.4 5.598zm4.539
+              2.358c-.21
+              0-.418.017-.625.05l-.664.106.09-.666.438-3.266c.013-.072.013-.072.012-.057a.783.783
+              0 0 1 .666-.616.78.78 0 0 1 .872.639l.006.038.507
+              3.933-.662-.108a3.957 3.957 0 0 0-.64-.053zm-7.781
+              3.19l.026-.004 3.934-.507-.108.662a3.98 3.98 0 0 0-.003
+              1.266l.105.664-.665-.09-3.265-.439a.784.784 0 0
+              1-.676-.679c-.054-.42.238-.809.63-.869l.022-.004zm11.504-.617a3.98
+              3.98 0 0 0-.632-1.097l-.425-.522.623-.256
+              3.056-1.256a.787.787 0 0 1 .916.253c.256.337.199.817-.104
+              1.063l-.045.037-3.151 2.405-.238-.627zm-1.205-1.672a3.984
+              3.984 0 0 0-1.095-.637l-.626-.24.41-.532
+              2.008-2.602c.059-.07.059-.07.046-.052a.78.78 0 0 1
+              1.306.227c.076.185.079.39.02.54l-.021.06-1.528
+              3.662-.52-.426zM4.595
+              7.793c.162-.387.611-.58.971-.441.017.004.017.004.055.02L9.283
+              8.9l-.425.52a3.985 3.985 0 0 0-.636
+              1.094l-.24.627-3.144-2.425a.784.784 0 0
+              1-.243-.924zm14.443 7.367c.054.045.054.045.044.04a.784.784
+              0 0 1
+              .199.884c-.163.386-.61.58-.964.443-.024-.006-.024-.006-.062-.022l-3.662-1.529.426-.52a3.98
+              3.98 0 0 0 .636-1.094l.241-.626 3.142
+              2.424zm1.332-3.303c.053.422-.239.809-.63.87l-.035.006-3.945.508.108-.662a3.999
+              3.999 0 0 0 .003-1.266l-.105-.663.665.09
+              3.272.44c.068.012.068.012.052.01a.784.784 0 0 1
+              .615.667zm-3.894 6.421c.024.068.024.068.017.053a.786.786 0
+              0
+              1-.27.87c-.332.25-.816.194-1.047-.091-.022-.023-.022-.023-.05-.058l-2.406-3.154.626-.237a3.977
+              3.977 0 0 0 1.097-.632l.523-.425 1.51
+              3.674zm-8.26-4.932c.151.397.365.767.633
+              1.097l.424.522-.622.256-3.054 1.255a.787.787 0 0
+              1-.92-.25.781.781 0 0
+              1-.154-.58c.027-.199.127-.379.227-.452.045-.046.045-.046.075-.069l3.153-2.406.238.627zm3.723
+              2.572c.209 0 .417-.016.625-.049l.662-.103-.089.664-.438
+              3.26-.012.062a.785.785 0 0
+              1-.666.618c-.048.005-.048.005-.101.006-.386
+              0-.714-.28-.764-.612-.01-.043-.01-.043-.014-.072l-.507-3.934.662.108c.213.035.427.052.642.052zM7.366
+              18.27l.006-.015L8.9 14.592l.52.426a3.99 3.99 0 0 0
+              1.094.636l.626.241-.41.531-2.012 2.609-.04.046a.788.788 0
+              0 1-.886.2.787.787 0 0 1-.428-1.011z"></path><path
+              d="M11.911 14.322a2.411 2.411 0 1 0 0-4.822 2.411 2.411 0
+              0 0 0 4.822zm0 2a4.411 4.411 0 1 1 0-8.822 4.411 4.411 0 0
+              1 0 8.822z"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Cao trung bình
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.morning?.averageHeight }}
+            </span>
+          </div>
+        </li>
+        <li class="DetailsTable-listItem flex items-start pt-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="sunrise-sun"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Sun
+              Rise</title><path d="M12.003 16.125v-2.21m-5.602
+              2.129l1.69 1.441m9.237-1.489l-1.4 1.63"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round"></path><path d="M4.05
+              20.938h2.48m11.27 0h2.481" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path><path d="M12
+              9.938V4.426M8.563 6.5L12 3.062M15.438 6.5L12 3.062"
+              stroke="currentColor" stroke-linecap="round"
+              stroke-width="2"></path><path d="M12.02 21.605h3.059c.421
+              0 .543-.229.543-.455 0-1.735-1.613-3.142-3.602-3.142-1.99
+              0-3.603 1.407-3.603 3.142 0 .266.1.455.529.455h3.074z"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Bình minh
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.morning?.sunRise }}
+            </span>
+            <div class="pb-5.5"></div>
+          </div>
+
+        </li>
+        <li class="DetailsTable-listItem flex items-start pt-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="sunset-sun"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Sunset</title><path
+              d="M12.003 15.781v-2.21M6.401 15.7l1.69
+              1.442m9.237-1.49l-1.4 1.63" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"></path><path
+              d="M4.05 20.594h2.48m11.27 0h2.481" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path><path d="M12
+              3.063v5.51M8.563 6.5L12 9.938M15.438 6.5L12 9.938"
+              stroke="currentColor" stroke-linecap="round"
+              stroke-width="2"></path><path d="M12.02 21.261h3.059c.421
+              0 .543-.229.543-.455 0-1.735-1.613-3.142-3.602-3.142-1.99
+              0-3.603 1.407-3.603 3.142 0 .266.1.455.529.455h3.074z"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Hoàng hôn
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.morning?.sunSet }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="DailyContent">
+      <div class="DetailsContent">
+        <h3 class="text-sm font-normal mb-1">
+          <span class="daypartDate font-semibold">
+            {{ detailDay.dayOfWeek }} {{ detailDay.dayOfMonth }}
+          </span>
+          | Đêm
+        </h3>
+        <div class="ConditionsSummary pb-1.5 flex items-start">
+          <span class="text-5xl font-bold">{{ detailDay.night?.temp }}°</span>
+          <img class="pl-2.5" src="{{ detailDay.night?.image }}" alt="">
+          <div class="dataPoints ml-auto">
+            <div class="label flex pt-1">
+              <svg class="DailyContent-precipIcon inline-block w-4.5"
+                theme="action" set="heads-up" name="precip-rain-single"
+                aria-hidden="false" aria-label="Khả năng có mưa"
+                role="img" viewBox="0 -2 5 10"><title>Rain</title><path
+                  d="M4.7329.0217c-.1848-.059-.3855.0064-.4803.148L.2731
+                  5.1191c-.0814.0922-.1501.1961-.196.3108-.2469.6009.1185
+                  1.2697.8156 1.4943.6914.226 1.447-.0712
+                  1.7-.6585L4.9662.4987l.0111-.0282c.073-.1807-.036-.379-.2444-.4488z"></path></svg>
+              <span class="pl-2.5 text-sm">{{ detailDay.night?.rain }}%</span>
+            </div>
+            <div class="label flex pt-1">
+              <svg arialabel="Gió" class="DailyContent-windIcon
+                inline-block" theme="action" set="current-conditions"
+                name="wind" aria-hidden="true" role="img" viewBox="0 0
+                24
+                24"><title>Wind</title><path d="M6 8.67h5.354c1.457 0
+                  2.234-1.158 2.234-2.222S12.687 4.4 11.354 4.4c-.564
+                  0-1.023.208-1.366.488M3 11.67h15.54c1.457 0
+                  2.235-1.158
+                  2.235-2.222S19.873 7.4 18.54 7.4c-.747
+                  0-1.311.365-1.663.78M6 15.4h9.389c1.457 0 2.234 1.159
+                  2.234 2.223 0 1.064-.901 2.048-2.234 2.048a2.153 2.153
+                  0
+                  0 1-1.63-.742" stroke-width="2" stroke="currentColor"
+                  stroke-linecap="round" fill="none"></path></svg>
+              <span class="pl-2.5 text-sm">{{ detailDay.night?.wind }}</span>
+            </div>
+          </div>
+        </div>
+        <p class="message text-base">{{ detailDay.night?.message }}
+          <!-- <title>{{ detailDay.night?.message }}</title> -->
+        </p>
+      </div>
+      <ul class="DetailsTable p-4 rounded-md grid grid-cols-2">
+        <li class="DetailsTable-listItem flex items-start pb-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="humidity"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Humidity</title><path
+              fill-rule="evenodd" d="M11.743 17.912a4.182 4.182 0 0
+              1-2.928-1.182 3.972 3.972 0 0 1-.614-4.962.743.743 0 0 1
+              .646-.349c.234 0 .476.095.66.275l4.467
+              4.355c.385.376.39.998-.076 1.275a4.216 4.216 0 0
+              1-2.155.588M11.855 4c.316 0
+              .61.14.828.395.171.2.36.416.562.647 1.857 2.126 4.965
+              5.684 4.965 8.73 0 3.416-2.85 6.195-6.353 6.195-3.505
+              0-6.357-2.78-6.357-6.195 0-3.082 2.921-6.406
+              4.854-8.605.242-.275.47-.535.673-.772A1.08 1.08 0 0 1
+              11.855 4"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Bản ghi thấp
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.night?.lowRecord }}
+            </span>
+          </div>
+        </li>
+        <li class="DetailsTable-listItem flex items-start pb-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="uv"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>UV
+              Level</title><path d="M7.4 5.598a.784.784 0 0 1
+              .25-.92c.335-.256.824-.197
+              1.02.062.066.063.066.063.08.085l2.406 3.152-.626.238a3.983
+              3.983 0 0 0-1.097.633l-.522.424L7.4 5.598zm4.539
+              2.358c-.21
+              0-.418.017-.625.05l-.664.106.09-.666.438-3.266c.013-.072.013-.072.012-.057a.783.783
+              0 0 1 .666-.616.78.78 0 0 1 .872.639l.006.038.507
+              3.933-.662-.108a3.957 3.957 0 0 0-.64-.053zm-7.781
+              3.19l.026-.004 3.934-.507-.108.662a3.98 3.98 0 0 0-.003
+              1.266l.105.664-.665-.09-3.265-.439a.784.784 0 0
+              1-.676-.679c-.054-.42.238-.809.63-.869l.022-.004zm11.504-.617a3.98
+              3.98 0 0 0-.632-1.097l-.425-.522.623-.256
+              3.056-1.256a.787.787 0 0 1 .916.253c.256.337.199.817-.104
+              1.063l-.045.037-3.151 2.405-.238-.627zm-1.205-1.672a3.984
+              3.984 0 0 0-1.095-.637l-.626-.24.41-.532
+              2.008-2.602c.059-.07.059-.07.046-.052a.78.78 0 0 1
+              1.306.227c.076.185.079.39.02.54l-.021.06-1.528
+              3.662-.52-.426zM4.595
+              7.793c.162-.387.611-.58.971-.441.017.004.017.004.055.02L9.283
+              8.9l-.425.52a3.985 3.985 0 0 0-.636
+              1.094l-.24.627-3.144-2.425a.784.784 0 0
+              1-.243-.924zm14.443 7.367c.054.045.054.045.044.04a.784.784
+              0 0 1
+              .199.884c-.163.386-.61.58-.964.443-.024-.006-.024-.006-.062-.022l-3.662-1.529.426-.52a3.98
+              3.98 0 0 0 .636-1.094l.241-.626 3.142
+              2.424zm1.332-3.303c.053.422-.239.809-.63.87l-.035.006-3.945.508.108-.662a3.999
+              3.999 0 0 0 .003-1.266l-.105-.663.665.09
+              3.272.44c.068.012.068.012.052.01a.784.784 0 0 1
+              .615.667zm-3.894 6.421c.024.068.024.068.017.053a.786.786 0
+              0
+              1-.27.87c-.332.25-.816.194-1.047-.091-.022-.023-.022-.023-.05-.058l-2.406-3.154.626-.237a3.977
+              3.977 0 0 0 1.097-.632l.523-.425 1.51
+              3.674zm-8.26-4.932c.151.397.365.767.633
+              1.097l.424.522-.622.256-3.054 1.255a.787.787 0 0
+              1-.92-.25.781.781 0 0
+              1-.154-.58c.027-.199.127-.379.227-.452.045-.046.045-.046.075-.069l3.153-2.406.238.627zm3.723
+              2.572c.209 0 .417-.016.625-.049l.662-.103-.089.664-.438
+              3.26-.012.062a.785.785 0 0
+              1-.666.618c-.048.005-.048.005-.101.006-.386
+              0-.714-.28-.764-.612-.01-.043-.01-.043-.014-.072l-.507-3.934.662.108c.213.035.427.052.642.052zM7.366
+              18.27l.006-.015L8.9 14.592l.52.426a3.99 3.99 0 0 0
+              1.094.636l.626.241-.41.531-2.012 2.609-.04.046a.788.788 0
+              0 1-.886.2.787.787 0 0 1-.428-1.011z"></path><path
+              d="M11.911 14.322a2.411 2.411 0 1 0 0-4.822 2.411 2.411 0
+              0 0 0 4.822zm0 2a4.411 4.411 0 1 1 0-8.822 4.411 4.411 0 0
+              1 0 8.822z"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Trung bình thấp
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.night?.lowMiddle }}
+            </span>
+          </div>
+        </li>
+        <li class="DetailsTable-listItem flex items-start pt-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="sunrise-sun"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Sun
+              Rise</title><path d="M12.003 16.125v-2.21m-5.602
+              2.129l1.69 1.441m9.237-1.489l-1.4 1.63"
+              stroke="currentColor" stroke-width="2"
+              stroke-linecap="round"></path><path d="M4.05
+              20.938h2.48m11.27 0h2.481" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path><path d="M12
+              9.938V4.426M8.563 6.5L12 3.062M15.438 6.5L12 3.062"
+              stroke="currentColor" stroke-linecap="round"
+              stroke-width="2"></path><path d="M12.02 21.605h3.059c.421
+              0 .543-.229.543-.455 0-1.735-1.613-3.142-3.602-3.142-1.99
+              0-3.603 1.407-3.603 3.142 0 .266.1.455.529.455h3.074z"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Mặt trăng mọc
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.night?.moonRise }}
+            </span>
+            <div class="moonPhraseWrapper flex">
+              <svg set="astro" class="DetailsTable-moonIcon mr-1 w-4"
+                name="phase-9" theme="full" data-testid="Icon"
+                aria-hidden="true" role="img" width="18" height="18"
+                viewBox="0 0 1024 1024"><title>Moon Phase - Day 9</title><path
+                  d="M517.327 56.491q-75.654 0-129.997 135.326t-54.343
+                  325.528 54.343 325.528 129.997 135.326q188.604 0
+                  324.196-135.326t135.592-325.528-135.592-325.528T517.327
+                  56.491zm-.532 956.871q-205.12 0-350.835-145.715T20.245
+                  517.345 165.96 166.777 516.795 20.796q204.587 0
+                  350.302 145.981t145.715 350.568-145.715
+                  350.302-350.302 145.715z"></path></svg>
+              <span class="block self-center text-sm font-semibold">
+                {{ detailDay.night?.descMoon }}
+              </span>
+            </div>
+          </div>
+        </li>
+        <li class="DetailsTable-listItem flex items-start pt-2.5">
+          <svg class="DetailsTable-icon inline-block h-auto w-5 mr-2.5"
+            theme="action" set="current-conditions" name="sunset-sun"
+            aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Sunset</title><path
+              d="M12.003 15.781v-2.21M6.401 15.7l1.69
+              1.442m9.237-1.49l-1.4 1.63" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"></path><path
+              d="M4.05 20.594h2.48m11.27 0h2.481" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path><path d="M12
+              3.063v5.51M8.563 6.5L12 9.938M15.438 6.5L12 9.938"
+              stroke="currentColor" stroke-linecap="round"
+              stroke-width="2"></path><path d="M12.02 21.261h3.059c.421
+              0 .543-.229.543-.455 0-1.735-1.613-3.142-3.602-3.142-1.99
+              0-3.603 1.407-3.603 3.142 0 .266.1.455.529.455h3.074z"></path></svg>
+          <div class="DetailsTable-field">
+            <span class="block">
+              Mặt trăng lặn
+            </span>
+            <span class="block text-base font-bold">
+              {{ detailDay.night?.moonSet }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <button class="btn-close absolute top-0 right-0 text-blue-600 p-2 z-30"
+      (click)="closeDetail()">
+      <i class="ti-close font-bold"></i>
+    </button>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

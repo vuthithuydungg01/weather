@@ -1,0 +1,136 @@
+<header>
+  <div class="header1 relative">
+    <div class="row">
+      <div class="container flex">
+        <div class="header1-left flex">
+          <a href="https://weather.com/vi-VN" class="logo">
+            <img src="../assets/img/logo.png" alt="">
+          </a>
+          <div class="header1-left-text">
+            <img src="../assets/img/header-left-text.png" alt="">
+          </div>
+        </div>
+        <div class="header1-right flex">
+          <div class="search">
+            <input type="text" placeholder="Tìm thành phố hoặc mã zip"> <i
+              class="ti-search"></i>
+          </div>
+          <div class="language ">
+            <button class="flex" (click)="openExpandableMenu()">
+              <div class="left"><i class="fa-solid fa-earth-americas"></i>VN</div>
+              <div class="right">°C <mat-icon>arrow_drop_down</mat-icon></div>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div   [ngClass]='{"Big-ExpandableMenu": isShow}' class="Big-ExpandableMenu absolute bg-white block w-full z-30">
+    <div class="row">
+      <div class="Big-ExpandableMenu-inner w-full">
+        <section class="UnitSelector flex items-start">
+          <div class="TabListWrapper pt-1 flex items-center">
+            <ul class="tabList inline-flex list-none">
+              <li class="tabList-tab text-center text-sm -webkit-box">°F</li>
+              <li class="tabList-tab text-center text-sm -webkit-box">°C</li>
+              <li class="tabList-tab text-center text-sm -webkit-box">Hỗn hợp</li>
+            </ul>
+          </div>
+          <div class="tabpanel text-center self-center">
+            C / milimét / dặm / dặm / giờ / milliba
+          </div>
+        </section>
+        <details class="LanguageSelector block" *ngFor="let item of location">
+          <summary>
+            <div class="SummaryDefault flex items-center justify-between text-lg
+              font-bold uppercase">
+              {{ item?.area }}
+              <svg set="ui" name="caret-down" class="Disclosure inline-block h-auto"
+                aria-hidden="true" role="img" viewBox="0 0 24 24"><title>Arrow
+                  Down</title><path d="M12 16.086l7.293-7.293a1 1 0 1 1 1.414
+                  1.414l-8 8a1 1 0 0 1-1.414 0l-8-8a1 1 0 1 1 1.414-1.414L12
+                  16.086z"></path></svg>
+            </div>
+          </summary>
+          <div class="LanguageSelector-Content">
+            <div class="listContainer grid grid-cols-3">
+              <a *ngFor="let i of item?.detail" href="{{ i?.link }}" class="ListItem">{{ i?.nation }}</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+  <div class="header2">
+    <div class="row">
+      <div class="header2-text flex">
+        <a
+          href="https://weather.com/vi-VN/weather/today/l/53692b85ecdcbeb3013c1bf60fa2737edfd8b6efc634ccd48d6cfdf435ddb89f"><i
+            class="fa-solid fa-cloud"></i>31°</a>
+        <a
+          href="https://weather.com/vi-VN/weather/today/l/53692b85ecdcbeb3013c1bf60fa2737edfd8b6efc634ccd48d6cfdf435ddb89f">Xom
+          trong, 64</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="row">
+      <div class="main-nav flex">
+        <div class="sub-nav flex">
+          <a
+            href="#">
+            H.nay
+          </a>
+          <a
+            routerLink="/hourly" routerLinkActive="active"
+            ariaCurrentWhenActive="page">
+            Hàng giờ
+          </a>
+          <a
+            routerLink="/ten-days" routerLinkActive="active"
+            ariaCurrentWhenActive="page">
+            10 ngày
+          </a>
+          <a
+            routerLink="/weekend" routerLinkActive="active"
+            ariaCurrentWhenActive="page">
+            Cuồi tuần
+          </a>
+          <a
+            routerLink="/monthly" routerLinkActive="active"
+            ariaCurrentWhenActive="page">
+            Hàng tháng
+          </a>
+        </div>
+        <div class="more relative">
+          <button>
+            Thêm dự báo
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <div class="ExpandableMenu absolute w-full right-0 left-auto
+            top-full z-10">
+            <nav aria-label="Cảnh báo đặc biệt">
+              <h3 class="navHeader text-lg font-bold uppercase">
+                Cảnh báo đặc biệt
+              </h3>
+              <div class="nav-main flex flex-wrap">
+                <a routerLink="/warning1" routerLinkActive="active"
+                  ariaCurrentWhenActive="page" class="text-base flex-1
+                  no-underline">
+                  <span class="">Trình theo dõi dị ứng</span>
+                </a>
+                <a routerLink="/warning2" routerLinkActive="active"
+                  ariaCurrentWhenActive="page" class="text-base flex-1
+                  no-underline">
+                  <span class="">Dự báo chất lượng không khí</span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

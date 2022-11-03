@@ -1,0 +1,248 @@
+header {
+  background-color: #005986;
+}
+.container {
+  height: 82px;
+  justify-content: space-between;
+  padding: 11px 11px 11px 6px;
+}
+.header1-left {
+  align-items: center;
+  padding-right: 30px;
+}
+.header1-left a {
+  /* padding: 5px; */
+  width: 60px;
+  height: 60px;
+}
+.header1-left a img {
+  width: 100%;
+  height: 100%;
+}
+.header1-left-text {
+  width: 130px;
+  height: 23px;
+  padding: 0 4px 0 12px;
+}
+.header1-left-text img {
+  width: 100%;
+  height: 100%;
+}
+.header1-right {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.header1-right .search {
+  max-width: 380px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  height: 38px;
+}
+.header1-right .search i {
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+.header1-right .search input {
+  width: 100%;
+  font-size: 1rem !important;
+  border: 0;
+  border-radius: 20px;
+  padding-right: 38px;
+  padding: 5px 6px;
+  text-align: center;
+  color: #fff;
+  background: hsla(0, 0%, 100%, 0.2);
+}
+.header1-right .search input:focus {
+  outline: 5px auto #fff;
+}
+.header1-right .language {
+  padding-top: 10px;
+}
+.header1-right .language .left {
+  padding: 0 10px;
+}
+.header1-right .language .left i {
+  font-size: 24px;
+  padding-right: 10px;
+}
+.header1-right .language .right {
+  padding: 0 10px;
+  border-left: 1px solid #fff;
+}
+.header1-right .language .right .mat-icon {
+  font-size: 34px;
+}
+.language button:focus {
+  outline: 5px auto #1b4de4;
+}
+/* .language button:visited .Big-ExpandableMenu {
+  display: block;
+} */
+.Big-ExpandableMenu {
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 20%);
+  display: none;
+}
+.Big-ExpandableMenu-inner {
+  color: #2b2b2b;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px 15px;
+}
+.UnitSelector {
+  margin: 0 30px 14px;
+}
+.tabList {
+  border-radius: 27px;
+  border: 1px solid #dee0e3;
+}
+.tabList-tab {
+  flex-grow: 1;
+  flex-shrink: 0;
+  color: #1b4de4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tabList-tab:first-child {
+  padding: 4px 30px;
+}
+.tabList-tab:nth-child(2) {
+  padding: 3px 18px;
+}
+.tabList-tab:last-child {
+  color: #fff;
+  padding: 3px 25px;
+  background-color: #1b4de4;
+  box-shadow: 0 0 4px -1px rgb(0 0 0 / 75%);
+  border-radius: 27px;
+}
+.tabpanel {
+  font-size: 0.8125rem !important;
+  letter-spacing: -0.08px;
+  color: #6f7585;
+  padding: 8px 0 0 10px;
+}
+.LanguageSelector summary {
+  padding: 10px 31px;
+  list-style: none;
+  cursor: pointer;
+  border-top: 1px solid #dedede;
+}
+.LanguageSelector summary:hover .SummaryDefault,
+.ListItem:hover {
+  color: #1b4de4;
+}
+.Disclosure {
+  fill: #1b4de4;
+  width: 18px;
+  flex-shrink: 0;
+}
+.LanguageSelector-Content {
+  padding: 10px 21px;
+  border-top: 1px solid #dedede;
+}
+.listContainer {
+  padding: 10px 10px 30px;
+}
+.ListItem {
+  padding: 7px 0;
+  line-height: 1.3em;
+}
+
+.header2 {
+  height: 40px;
+  background: hsla(0, 0%, 100%, 0.2);
+}
+.header2-text {
+  width: 300px;
+  height: 100%;
+  font-size: 0.875rem;
+  align-items: center;
+  margin-left: 60px;
+  padding: 0 15px;
+  border-right: 1px solid hsla(0, 0%, 100%, 0.2);
+}
+.header2-text a:first-child {
+  padding: 3px 5px 3px 0;
+}
+.header2-text a:first-child i {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+.header2-text a:last-child {
+}
+
+.nav {
+  background: rgba(0, 0, 0, 0.4);
+}
+.main-nav {
+  height: 40px;
+  align-items: center;
+}
+.sub-nav {
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.sub-nav a {
+  height: 100%;
+  padding: 0 15px;
+  line-height: 40px;
+}
+.active {
+  border-bottom: 2px solid #fff !important;
+}
+
+.more {
+  height: 100%;
+  cursor: pointer;
+  line-height: 40px;
+}
+.more button {
+  width: max-content;
+  padding: 0 65px 0 20px;
+}
+.more button:focus {
+  outline: 5px auto #1b4de4;
+}
+.more:focus-within .ExpandableMenu {
+  display: block;
+}
+.more .mat-icon {
+  font-size: 34px;
+  display: inline-block;
+}
+.ExpandableMenu {
+  display: none;
+  width: 350px;
+  color: #2b2b2b;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 20%);
+  pointer-events: none;
+}
+.navHeader {
+  padding: 6px 15px 8px;
+}
+.nav-main {
+  width: 100%;
+}
+.nav-main a {
+  pointer-events: visible;
+}
+.nav-main a:hover {
+  color: #1b4de4;
+}
+.nav-main span {
+  display: block;
+  padding: 5px 15px;
+  line-height: 1.4em;
+}

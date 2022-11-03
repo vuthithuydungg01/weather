@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<div class="main-content mx-auto grid gap-x-3 pt-3 pb-3">
+  <div class="main-content-left relative ml-3 grid col-start-1 col-end-2
+    gap-x-3 auto-rows-max">
+    <div class="content-warning1 w-full col-span-12 h-full rounded-md
+      bg-white">
+      <h1 class="p-4 text-2xl">
+        <strong>Chất lượng không khí hôm nay</strong>
+        <span class="LocationPageTitle pl-1 text-base">
+          - Xom trong, 64
+        </span>
+      </h1>
+      <div class="AirQualityCard flex pb-26px">
+        <div class="AirQuality-leftCol flex items-center pb-26px font-bold">
+          <div class="AirQuality-Col1">
+            <svg width="102" height="102"
+              class="DonutChart-donutchart block">
+              <circle r="51" cx="51"
+                cy="51" transform="rotate(90 51 51)" style="stroke-width:10"
+                class="DonutChart-track"></circle>
+              <circle r="51" cx="51"
+                cy="51" transform="rotate(90 51 51)"
+                style="stroke-width:10;stroke-dasharray:160.22122533307945
+                320.4424506661589;stroke:#FF7200"
+                class="DonutChart-indicator"></circle>
+              <text x="50%"
+                y="55%" dominant-baseline="middle" alignment-baseline="middle"
+                text-anchor="middle" class="DonutChart-innerValue1 font-semibold"
+                >150</text>
+            </svg>
+          </div>
+          <div class="AirQuality-Col2">
+            <span class="font-bold text-2xl">Không tốt cho sức khỏe đối với các nhóm nhạy cảm</span>
+            <p class="font-normal">Những người trong nhóm nhạy cảm có thể có ảnh hưởng đến sức khỏe. Dân số chung không có khả năng bị ảnh hưởng</p>
+          </div>
+        </div>
+        <div class="AirQuality-rightCol self-center">
+          <h3 class="AirQuality-pollutantHeading text-base font-semibold">
+            Chất gây ô nhiễm chính:
+          </h3>
+          <span class="AirQuality-pollutantName text-base inline-block">
+            PM2.5 (Chất dạng hạt dưới 2.5 micron)
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="content-warning1 w-full col-span-12 rounded-md
+      bg-white mt-3 h-auto">
+      <h2 class="p-4 text-xl font-semibold">Tất cả các chất gây ô nhiễm</h2>
+      <div class="AirQuality-allPollutantDials grid grid-cols-2 gap-x-3">
+        <div class="AirQuality-dial"  *ngFor="let item of data">
+          <div class="AirQuality-colWrapper flex ">
+            <div class="AirQuality-col">
+              <svg width="54" height="54" class="DonutChart-donutchart">
+                <circle r="27" cx="27" cy="27" transform="rotate(90 27 27)" style="stroke-width:10" class="DonutChart-track"></circle>
+                <!-- <circle r="27" cx="27" cy="27" transform="rotate(90 27 27)" style="stroke-width:10" style="stroke-dasharray:{{ item?.strokeDasharray }}" style="stroke:{{ item?.stroke }}" class="DonutChart-indicator"></circle> -->
+                <!-- <circle r="27" cx="27" cy="27" transform="rotate(90 27 27)" style="stroke-width:10;stroke-dasharray:{{ item?.strokeDasharray }}" style="stroke:{{ item?.stroke }}" class="DonutChart-indicator"></circle> -->
+                <circle r="27" cx="27" cy="27" transform="rotate(90 27 27)" style="stroke-width:10;stroke-dasharray:{{ item.strokeDasharray }};stroke:{{ item.stroke }}" class="DonutChart-indicator"></circle>
+                <text x="50%" y="55%" dominant-baseline="middle" alignment-baseline="middle" text-anchor="middle" class="DonutChart-innerValue2 font-semibold">{{ item?.value }}</text></svg>
+            </div>
+            <div class="AirQuality-col pl-3">
+              <span class="pollutantName leading-snug text-base font-normal">
+                {{ item?.pollutantName }}
+              </span>
+              <p class="pollutantCategory font-semibold">
+                {{ item?.pollutantCategory }}
+              </p>
+              <span class="pollutantMeasurement">
+                {{ item?.pollutantMeasurement }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="CardFooter flex items-center rounded-md">
+        <button class="Button-default flex items-center">
+          <svg theme="primary" set="ui" name="info" class="inline-block w-4 h-auto" aria-hidden="true" role="img" viewBox="0 0 16 16"><title>Info</title><g fill="none" fill-rule="evenodd"><path d="M7.881 1.201a6.8 6.8 0 10.238 13.598A6.8 6.8 0 007.88 1.201zm.259 14.798A8 8 0 117.86 0a8 8 0 01.28 16zM7.915 5.42a1.05 1.05 0 10-.037-2.1 1.05 1.05 0 00.037 2.1z" fill="currentColor"></path><path stroke="currentColor" stroke-width="1.5" d="M8 7v6"></path></g></svg>
+          <span class="ml-1 text-xs">CHỈ SỐ CH.LƯỢNG KH.KHÍ</span>
+        </button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+

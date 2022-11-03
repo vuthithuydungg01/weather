@@ -1,0 +1,105 @@
+
+footer {
+  background-color: #fff;
+  margin-top: 48px;
+}
+
+footer {
+  margin-top: 48px;
+  border-top: 1px solid #dedede;
+}
+.main-footer {
+  max-width: 1138px;
+  color: #2b2b2b;
+  font-size: 0.875rem;
+  text-align: center;
+
+  padding: 30px 0;
+  margin: 0 auto;
+}
+.socialLinks li {
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 100vw;
+  background-color: #cfdaf9;
+}
+.socialLinks li:hover {
+  color: #fff;
+  background-color: #1b4de4;
+}
+.socialLinks li a {
+  width: 24px;
+  height: 24px;
+}
+.socialLinks li a i {
+  font-size: 18px;
+  font-weight: bold;
+}
+.Footer-logoLockup img {
+  margin-left: 10px;
+}
+.Footer-logoLockup img:first-child {
+  margin-left: 0;
+}
+.Footer-corporateLinks {
+  margin: 35px 0 14px;
+}
+.Footer-corporateLinks li {
+  margin-top: 10px;
+}
+.Footer-corporateLinks li:hover a,
+.Footer-legalLinks li:hover a {
+  color: #446de9;
+}
+.Footer-legalLinks li a {
+  border-right: 1px solid;
+}
+.Footer-legalLinks li:last-child a {
+  border: none;
+}
+.Footer-attribution span {
+  font-size: 13px;
+}
+.Footer-ibmLink span {
+  padding: 5px 10px 0 0;
+}
+
+.listItem {
+  border-top: 1px solid #dedede !important;
+  padding: 18px 16px 17px 24px !important;
+}
+.listItem svg {
+  border-radius: 50%;
+}
+.DonutChart-track {
+  fill: transparent;
+  stroke: #e7ecf1;
+}
+.DonutChart-indicator {
+  fill: transparent;
+  transition: stroke-dasharray 0.3s ease;
+}
+.Icon-darkTheme {
+  fill: #2b2b2b;
+  color: #2b2b2b;
+  height: auto;
+  width: 24px;
+}
+.HealthActivitiesListItem-details {
+  margin-left: 20px;
+}
+.HealthActivitiesListItem-heading {
+  line-height: 1.1em;
+  word-break: break-word;
+}
+.HealthActivitiesListItem-description {
+  line-height: 1.25;
+  color: #6f7585;
+}
+.Icon-actionTheme {
+  fill: #1b4de4;
+  color: #1b4de4;
+  flex-shrink: 0;
+  padding-left: 10px;
+  width: 26px;
+}

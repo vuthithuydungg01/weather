@@ -1,0 +1,46 @@
+.DaypartDetails-Content {
+  padding: 5px 26px 15px;
+  grid-column-gap: 22px;
+}
+.ConditionsSummary img {
+  width: 48px;
+  height: 48px;
+  padding-left: 10px;
+}
+.dataPoints {
+  margin-left: auto;
+}
+.label span {
+  padding-left: 10px;
+}
+.DailyContent-precipIcon,
+.DailyContent-windIcon {
+  width: 18px;
+  height: 18px;
+  fill: #1b4de4;
+  color: #1b4de4;
+}
+.DailyContent p {
+  padding-right: 34px;
+  margin-bottom: 14px;
+}
+.DetailsTable li:nth-child(n+3) {
+  border-top: 1px solid #dedede!important;
+}
+.moonPhraseWrapper {
+  height: 22px;
+  padding-top: 5px;
+
+}
+.DetailsTable-moonIcon {
+
+}
+.moonPhraseWrapper span {
+  white-space: nowrap;
+}
+.pb-5\.5 {
+  padding-bottom: 22px;
+}
+.HourlyForecast-timestamp {
+  opacity: 0.65;
+}
